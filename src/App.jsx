@@ -19,11 +19,15 @@ function App() {
       };
     });
   };
+
+  const inputIsValid = userInput.duration >= 1;
+
   return (
     <>
       <Header />
       <UserInput userInput={UserInput} handleChange={handleChange} />
-      <Results userInput={userInput} />
+      {!inputIsValid && <p className="center">Please enter a valid input</p>}
+      {inputIsValid && <Results userInput={userInput} />}
     </>
   );
 }
